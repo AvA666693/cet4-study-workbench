@@ -1,0 +1,260 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#f5f7fb" />
+  <title>四级学习工作台</title>
+  <style>
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Noto+Sans+SC:wght@400;500;600;700&display=swap');
+:root{font-family:"DM Sans","Noto Sans SC",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;color:#1e293b;background:#f5f7fb;font-synthesis:none;text-rendering:optimizeLegibility;--muted:#7b8798;--line:#e7ebf2;--blue:#3f68d9;--navy:#1f2e4d}
+*{box-sizing:border-box}body{margin:0;background:#f5f7fb}.app-shell{min-height:100vh;display:flex}.sidebar{width:242px;background:#fff;border-right:1px solid var(--line);padding:28px 16px 18px;display:flex;flex-direction:column;flex-shrink:0}.brand{display:flex;gap:11px;align-items:center;padding:0 12px 38px}.brand-mark{height:40px;width:40px;display:grid;place-items:center;border-radius:13px;background:#3f68d9;color:white;font-weight:800;font-size:22px;box-shadow:0 6px 15px #3f68d92b}.brand strong{display:block;font-size:16px;letter-spacing:-.4px}.brand small{display:block;color:#9aa4b4;font-size:9px;letter-spacing:1.2px;margin-top:3px}.nav-label,.eyebrow{font-size:10px;font-weight:700;letter-spacing:1.3px;color:#9aa4b4}.nav-label{padding:0 14px 12px}.nav-item{border:0;background:transparent;color:#7a8799;text-align:left;display:flex;gap:13px;align-items:center;width:100%;padding:12px 14px;border-radius:10px;font:500 13px inherit;cursor:pointer;margin:2px 0}.nav-item span{font-size:17px;width:19px;text-align:center}.nav-item:hover{background:#f6f8fd;color:#334155}.nav-item.active{background:#edf2ff;color:#315bd0;font-weight:700}.sidebar-bottom{margin-top:auto}.local-note{display:flex;align-items:center;gap:10px;padding:15px 12px;margin:15px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}.local-note b{font-size:11px;display:block}.local-note small{font-size:10px;color:#9aa4b4;display:block;margin-top:4px}.status-dot{width:8px;height:8px;background:#36b37e;border-radius:50%;box-shadow:0 0 0 4px #e4f7ed}.main{max-width:1600px;min-width:0;flex:1;padding:32px clamp(20px,3.4vw,54px) 20px}.topbar{display:flex;justify-content:space-between;align-items:center;margin-bottom:28px;gap:20px}.topbar h1{font-size:26px;letter-spacing:-.7px;margin:7px 0 0;font-weight:700}.top-actions{display:flex;gap:12px;align-items:center}.today-pill{font-size:12px;color:#7b8798;background:#fff;border:1px solid var(--line);border-radius:9px;padding:10px 13px}.button{border:0;border-radius:9px;padding:11px 15px;font:600 12px inherit;cursor:pointer;transition:transform .15s,box-shadow .15s}.button:hover{transform:translateY(-1px)}.button-light{background:#fff;border:1px solid var(--line);color:#46536a}.button-primary{background:#3f68d9;color:white;box-shadow:0 5px 12px #3f68d926}.button-white{background:#fff;color:#2d54bf;margin-top:13px}.button-danger{background:#fff0ec;color:#bf4c32}.page{display:none}.page.active{display:block}.welcome-card{min-height:220px;background:linear-gradient(115deg,#263d6a,#385bb0 68%,#5477cf);border-radius:17px;padding:30px 35px;position:relative;overflow:hidden;color:white;display:flex;align-items:center;justify-content:space-between}.welcome-tag{font-size:9px;letter-spacing:1.6px;font-weight:700;color:#b9cbff}.welcome-card h2{font-size:28px;margin:12px 0 8px;letter-spacing:-.6px}.welcome-card p{font-size:12px;color:#d6e0ff;max-width:410px;line-height:1.8;margin:0}.welcome-graphic{width:230px;height:175px;position:relative;flex-shrink:0;margin-right:35px}.orbit{position:absolute;border:1px solid #ffffff2d;border-radius:50%;transform:rotate(-25deg)}.orbit-one{width:240px;height:110px;top:32px;left:-10px}.orbit-two{width:180px;height:150px;top:10px;left:22px;transform:rotate(38deg)}.book-graphic{position:absolute;left:77px;top:32px;width:85px;height:105px;border-radius:8px 13px 13px 8px;background:linear-gradient(135deg,#fff,#e6edff);box-shadow:8px 12px 22px #152d6740;color:#3e61ba;font-size:42px;font-weight:700;display:grid;place-items:center;transform:rotate(7deg)}.book-graphic:before{content:"";position:absolute;left:8px;top:0;bottom:0;width:2px;background:#d1dcfb}.book-graphic span{font-size:17px;position:absolute;right:12px;top:10px}.spark{position:absolute;color:#dce6ff;font-size:24px}.spark-one{top:20px;right:12px}.spark-two{bottom:15px;left:35px}.section-heading{display:flex;align-items:center;justify-content:space-between;margin:28px 0 15px;gap:12px}.section-heading h2{font-size:17px;margin:0 0 5px;letter-spacing:-.3px}.section-heading p,.panel-heading p{font-size:11px;color:var(--muted);margin:0;line-height:1.6}.stats-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:15px}.stat-card,.panel,.skill-card{background:white;border:1px solid #e9edf4;border-radius:13px;box-shadow:0 2px 5px #1f2e4d04}.stat-card{padding:17px 18px}.stat-top{display:flex;justify-content:space-between;align-items:center;color:#718096;font-size:11px}.stat-icon{width:30px;height:30px;border-radius:9px;display:grid;place-items:center;font-size:16px}.blue{background:#eaf0ff;color:#4269d7}.green{background:#e5f7ee;color:#229363}.purple{background:#f1eaff;color:#8b5bd6}.orange{background:#fff1df;color:#d48a24}.pink{background:#ffeaf1;color:#c85883}.slate{background:#edf1f6;color:#66758b}.stat-value{font-size:27px;font-weight:700;letter-spacing:-.8px;margin:15px 0 8px}.stat-value small{font-size:11px;color:#8c97a8;font-weight:500;margin-left:5px;letter-spacing:0}.stat-foot{font-size:10px;color:#9aa4b4}.content-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:18px}.panel{padding:20px;margin-bottom:16px;min-width:0}.panel-heading{display:flex;align-items:flex-start;justify-content:space-between;gap:12px;margin-bottom:17px}.panel-heading h3,.settings-grid h3{font-size:14px;margin:0 0 6px}.panel-symbol{font-size:21px;color:#4169d8}.form-grid{display:flex;flex-direction:column;gap:13px}.form-grid label{display:flex;flex-direction:column;gap:7px;font-size:11px;font-weight:600;color:#59667a;min-width:0}.form-row{display:grid;grid-template-columns:1fr 1fr;gap:12px}.form-grid input,.form-grid select,.form-grid textarea{width:100%;min-width:0;border:1px solid #e2e7ef;background:#fbfcfe;border-radius:8px;padding:10px 11px;font:400 12px inherit;color:#263449;outline:none}.form-grid input:focus,.form-grid select:focus,.form-grid textarea:focus{border-color:#8da6f1;box-shadow:0 0 0 3px #edf2ff}.form-grid textarea{resize:vertical;line-height:1.6}.form-grid .button{align-self:flex-start}.text-button{border:0;background:none;color:#4169d8;font:600 11px inherit;cursor:pointer}.record-list{display:flex;flex-direction:column;gap:0}.record-item{display:flex;gap:12px;align-items:flex-start;padding:12px 0;border-bottom:1px solid #f0f2f6}.record-item:first-child{padding-top:0}.record-item:last-child{border-bottom:0;padding-bottom:0}.record-bullet{width:32px;height:32px;border-radius:9px;background:#edf2ff;color:#4269d7;display:grid;place-items:center;flex-shrink:0;font-size:13px}.record-main{flex:1;min-width:0}.record-main b{font-size:12px;display:block;overflow-wrap:anywhere}.record-main p{font-size:10px;color:#8a96a8;margin:5px 0 0;line-height:1.6;overflow-wrap:anywhere}.record-meta{font-size:10px;color:#99a3b1;white-space:nowrap}.empty-state{font-size:12px;color:#9aa4b4;line-height:1.8;padding:20px 4px}.practice-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}.skill-card{padding:20px}.skill-symbol{height:39px;width:42px;display:grid;place-items:center;border-radius:11px;font-size:15px;font-weight:700}.skill-card h3{font-size:14px;margin:16px 0 6px}.skill-card p{font-size:11px;line-height:1.7;color:#8a96a8;min-height:38px;margin:0 0 14px}.skill-card button{border:0;background:transparent;color:#4169d8;padding:0;font:600 11px inherit;cursor:pointer}.practice-entry{max-width:800px;margin-top:20px}.filter-pills{display:flex;gap:4px;background:#eaf0f7;border-radius:9px;padding:4px}.filter{border:0;border-radius:6px;background:transparent;color:#748197;padding:7px 10px;font:500 10px inherit;cursor:pointer}.filter.active{background:white;color:#355cc5;box-shadow:0 1px 3px #23385c12}.mistake-card{background:white;border:1px solid #e8edf4;border-radius:12px;padding:17px 19px;margin-bottom:10px}.mistake-top{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:10px}.tag{font-size:10px;padding:5px 8px;border-radius:6px;background:#edf2ff;color:#4169d8}.tag.done{background:#e5f7ee;color:#23875b}.mistake-card h3{font-size:13px;margin:0 0 8px;line-height:1.6}.mistake-card p{font-size:11px;color:#7c8798;line-height:1.7;margin:6px 0}.mistake-actions{display:flex;gap:8px;margin-top:12px}.small-button{font-size:10px;padding:7px 10px;border-radius:7px;border:1px solid #e5eaf2;background:#fff;color:#536177;cursor:pointer}.small-button.primary{background:#edf2ff;color:#355cc5;border-color:#edf2ff}.skill-stats{display:flex;flex-direction:column;gap:17px}.skill-stat-head{display:flex;justify-content:space-between;font-size:11px;margin-bottom:8px}.skill-stat-head span:last-child{color:#52627b;font-weight:700}.progress-track{height:7px;background:#eff2f7;border-radius:9px;overflow:hidden}.progress-fill{height:100%;border-radius:9px;background:#5578df}.weekly-chart{height:180px;display:flex;align-items:flex-end;justify-content:space-around;gap:9px;padding-top:10px}.day-col{display:flex;flex-direction:column;align-items:center;gap:8px;flex:1;height:100%;justify-content:flex-end}.day-bar-wrap{height:130px;width:100%;display:flex;align-items:flex-end;justify-content:center}.day-bar{width:min(28px,70%);min-height:3px;background:#7893e8;border-radius:6px 6px 2px 2px;position:relative}.day-bar.today{background:#3f68d9}.day-bar span{position:absolute;top:-18px;left:50%;transform:translateX(-50%);font-size:9px;color:#7b8798}.day-col small{font-size:9px;color:#8b97a8}.table-panel{margin-top:17px}.settings-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:15px}.settings-grid .panel{margin:0}.settings-icon{width:37px;height:37px;border-radius:10px;display:grid;place-items:center;font-size:18px;margin-bottom:16px}.settings-grid p{font-size:11px;color:#7d899b;line-height:1.8;min-height:60px}.file-button{display:inline-flex;align-items:center;position:relative;overflow:hidden}.file-button input{position:absolute;inset:0;opacity:0;cursor:pointer;width:100%}.import-status{min-height:16px;margin:9px 0 0!important}.danger-panel{border-color:#f3e7e2}.privacy-note{margin-top:17px;padding:17px 19px;background:#eef3fb;border-radius:11px}.privacy-note b{font-size:11px}.privacy-note p{font-size:11px;color:#748197;line-height:1.8;margin:6px 0 0}footer{display:flex;justify-content:space-between;gap:12px;border-top:1px solid var(--line);margin-top:25px;padding:17px 0 0;color:#a0a9b7;font-size:10px}footer span{color:#6da58a}.toast{position:fixed;bottom:24px;left:50%;transform:translate(-50%,20px);opacity:0;pointer-events:none;background:#202d45;color:white;border-radius:9px;padding:12px 18px;font-size:12px;box-shadow:0 8px 24px #1e293b2b;transition:all .22s;z-index:5;max-width:90vw}.toast.show{opacity:1;transform:translate(-50%,0)}
+.mobile-nav{display:none}@media(max-width:1050px){.sidebar{width:205px}.stats-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.welcome-graphic{margin-right:0}.settings-grid{grid-template-columns:1fr 1fr}}@media(max-width:760px){.app-shell{display:block}.sidebar{width:100%;height:auto;padding:12px 14px 10px;display:block;border-right:0;border-bottom:1px solid var(--line)}.brand{padding:0 3px}.brand-mark{height:36px;width:36px}.nav-label,.sidebar-bottom,.sidebar>.nav-item{display:none}.mobile-nav{position:fixed;z-index:20;left:0;right:0;bottom:0;display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:2px;padding:7px 8px calc(7px + env(safe-area-inset-bottom));background:#ffffffed;border-top:1px solid var(--line);backdrop-filter:blur(14px)}.mobile-nav .nav-item{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;width:100%;margin:0;padding:7px 2px;border-radius:10px;font-size:10px;text-align:center}.mobile-nav .nav-item span{font-size:18px;width:auto;line-height:1.1}.mobile-nav .nav-item small{font-size:10px}.main{padding:18px 12px calc(90px + env(safe-area-inset-bottom))}.topbar{align-items:center;margin-bottom:18px;gap:8px}.topbar h1{font-size:20px}.eyebrow{font-size:9px}.top-actions{flex-direction:column;align-items:flex-end;gap:6px}.today-pill{font-size:10px;padding:7px 8px;white-space:nowrap}.top-actions .button{font-size:10px;padding:8px 9px;white-space:nowrap}.welcome-card{padding:23px 19px;min-height:180px;border-radius:14px}.welcome-card h2{font-size:22px;line-height:1.35}.welcome-card p{font-size:12px}.welcome-graphic{display:none}.content-grid{grid-template-columns:1fr;gap:0}.practice-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}.skill-card{padding:15px}.skill-card p{min-height:0}.settings-grid{grid-template-columns:1fr}.stats-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}.stat-card{padding:12px}.stat-top{font-size:10px;gap:5px}.stat-icon{width:27px;height:27px}.stat-value{font-size:23px;margin:12px 0 7px}.stat-foot{font-size:9px;line-height:1.5}.form-row{grid-template-columns:1fr}.form-grid input,.form-grid select,.form-grid textarea{font-size:16px;padding:12px}.form-grid .button{align-self:stretch;min-height:42px}.section-heading{align-items:flex-start;flex-wrap:wrap;margin-top:23px}.section-heading h2{font-size:16px}.panel{padding:15px;margin-bottom:12px}.panel-heading{gap:8px}.panel-heading h3{font-size:14px}.record-meta{font-size:9px}.mistake-card{padding:15px}.filter-pills{max-width:100%;overflow-x:auto}.filter{white-space:nowrap}.weekly-chart{gap:4px}.day-bar span{font-size:8px}footer{font-size:9px;flex-wrap:wrap}.toast{bottom:calc(80px + env(safe-area-inset-bottom));font-size:12px;max-width:92vw}}@media(max-width:390px){.practice-grid{grid-template-columns:1fr}.stats-grid{grid-template-columns:1fr 1fr}.stat-value{font-size:22px}.topbar h1{font-size:18px}.today-pill{font-size:9px}.top-actions .button{font-size:9px;padding:7px 8px}}
+
+  </style>
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar">
+      <div class="brand"><div class="brand-mark">4</div><div><strong>StudyDesk</strong><small>CET-4 WORKSPACE</small></div></div>
+      <div class="nav-label">学习空间</div>
+      <button class="nav-item active" data-page="overview"><span>▦</span> 学习总览</button>
+      <button class="nav-item" data-page="practice"><span>✎</span> 专项训练</button>
+      <button class="nav-item" data-page="mistakes"><span>↺</span> 错题本</button>
+      <button class="nav-item" data-page="progress"><span>▥</span> 进步档案</button>
+      <div class="sidebar-bottom">
+        <div class="local-note"><span class="status-dot"></span><div><b>本地自动保存</b><small>数据保存在当前浏览器</small></div></div>
+        <button class="nav-item" data-page="settings"><span>⚙</span> 数据管理</button>
+      </div>
+    </aside>
+
+    <nav class="mobile-nav" aria-label="手机导航">
+      <button class="nav-item active" data-page="overview"><span>▦</span><small>总览</small></button>
+      <button class="nav-item" data-page="practice"><span>✎</span><small>训练</small></button>
+      <button class="nav-item" data-page="mistakes"><span>↺</span><small>错题</small></button>
+      <button class="nav-item" data-page="progress"><span>▥</span><small>进步</small></button>
+      <button class="nav-item" data-page="settings"><span>⚙</span><small>设置</small></button>
+    </nav>
+    <main class="main">
+      <header class="topbar"><div><div class="eyebrow">YOUR LEARNING SPACE</div><h1 id="page-title">学习总览</h1></div><div class="top-actions"><span class="today-pill" id="today-label"></span><button class="button button-light" id="quick-export">导出备份 ↗</button></div></header>
+      <section class="page active" id="page-overview">
+        <div class="welcome-card"><div><span class="welcome-tag">KEEP MOVING FORWARD</span><h2>每天进步一点点。</h2><p>把练习变成记录，把记录变成进步。今天也为四级目标前进一步。</p><button class="button button-white" data-goto="practice">开始今日训练 <span>→</span></button></div><div class="welcome-graphic" aria-hidden="true"><div class="orbit orbit-one"></div><div class="orbit orbit-two"></div><div class="book-graphic">A<span>+</span></div><div class="spark spark-one">✦</div><div class="spark spark-two">✧</div></div></div>
+        <div class="section-heading"><div><h2>学习概况</h2><p>你的累计学习数据会在这里持续更新</p></div></div>
+        <div class="stats-grid">
+          <article class="stat-card"><div class="stat-top"><span>累计学习时长</span><span class="stat-icon blue">◷</span></div><div class="stat-value"><span id="total-minutes">0</span><small>分钟</small></div><div class="stat-foot">来自你记录的每次学习</div></article>
+          <article class="stat-card"><div class="stat-top"><span>完成学习任务</span><span class="stat-icon green">✓</span></div><div class="stat-value" id="total-sessions">0</div><div class="stat-foot">已保存的学习记录</div></article>
+          <article class="stat-card"><div class="stat-top"><span>练习平均正确率</span><span class="stat-icon purple">◎</span></div><div class="stat-value"><span id="avg-accuracy">—</span><small id="accuracy-unit"></small></div><div class="stat-foot">完成练习后自动统计</div></article>
+          <article class="stat-card"><div class="stat-top"><span>待复习错题</span><span class="stat-icon orange">↺</span></div><div class="stat-value" id="open-mistakes">0</div><div class="stat-foot">复习后可标记为已掌握</div></article>
+        </div>
+        <div class="content-grid">
+          <article class="panel"><div class="panel-heading"><div><h3>记录一次学习</h3><p>哪怕只有 15 分钟，也值得被记录</p></div><span class="panel-symbol">✦</span></div>
+            <form id="session-form" class="form-grid">
+              <label>学习内容<input name="topic" required maxlength="80" placeholder="例如：四级高频词汇 Unit 1" /></label>
+              <div class="form-row"><label>专项<select name="skill"><option>词汇</option><option>听力</option><option>阅读</option><option>写作</option><option>翻译</option><option>真题模拟</option></select></label><label>学习时长（分钟）<input name="minutes" type="number" min="1" max="600" value="25" required /></label></div>
+              <label>学习笔记（选填）<textarea name="notes" rows="2" placeholder="今天学会了什么？还有什么没弄懂？"></textarea></label>
+              <button class="button button-primary" type="submit">保存学习记录 <span>→</span></button>
+            </form>
+          </article>
+          <article class="panel"><div class="panel-heading"><div><h3>最近学习记录</h3><p>最新保存的 5 条记录</p></div><button class="text-button" data-goto="progress">查看全部 →</button></div><div id="recent-sessions" class="record-list empty-state">还没有记录。完成第一次学习后，这里就会出现你的足迹。</div></article>
+        </div>
+      </section>
+      <section class="page" id="page-practice">
+        <div class="section-heading"><div><h2>专项训练</h2><p>记录每次练习结果，慢慢找出自己的薄弱项。</p></div></div>
+        <div class="practice-grid">
+          <article class="skill-card"><div class="skill-symbol blue">Aa</div><h3>词汇</h3><p>高频词、熟词僻义、词组搭配</p><button data-skill="词汇">记录练习 →</button></article>
+          <article class="skill-card"><div class="skill-symbol green">♫</div><h3>听力</h3><p>短对话、长对话、篇章听力</p><button data-skill="听力">记录练习 →</button></article>
+          <article class="skill-card"><div class="skill-symbol purple">▤</div><h3>阅读</h3><p>选词填空、长篇匹配、仔细阅读</p><button data-skill="阅读">记录练习 →</button></article>
+          <article class="skill-card"><div class="skill-symbol orange">✎</div><h3>写作</h3><p>审题、段落结构、常用表达</p><button data-skill="写作">记录练习 →</button></article>
+          <article class="skill-card"><div class="skill-symbol pink">译</div><h3>翻译</h3><p>句子结构、语法、文化主题表达</p><button data-skill="翻译">记录练习 →</button></article>
+          <article class="skill-card"><div class="skill-symbol slate">◫</div><h3>真题模拟</h3><p>限时训练与阶段自测</p><button data-skill="真题模拟">记录练习 →</button></article>
+        </div>
+        <article class="panel practice-entry"><div class="panel-heading"><div><h3>登记一次练习</h3><p>填入题量和正确题数，系统会计算正确率</p></div></div>
+          <form id="practice-form" class="form-grid">
+            <div class="form-row"><label>练习专项<select name="skill" id="practice-skill"><option>词汇</option><option>听力</option><option>阅读</option><option>写作</option><option>翻译</option><option>真题模拟</option></select></label><label>练习名称<input name="title" required placeholder="例如：仔细阅读练习 01" maxlength="80" /></label></div>
+            <div class="form-row"><label>题目总数<input name="total" type="number" min="1" max="500" value="10" required /></label><label>正确题数<input name="correct" type="number" min="0" max="500" value="7" required /></label></div>
+            <label>复盘笔记<textarea name="notes" rows="2" placeholder="错误原因、需要复习的知识点……"></textarea></label>
+            <button class="button button-primary" type="submit">保存练习结果</button>
+          </form>
+        </article>
+      </section>
+      <section class="page" id="page-mistakes">
+        <div class="section-heading"><div><h2>错题本</h2><p>把错误变成下一次做对的线索。</p></div></div>
+        <article class="panel"><div class="panel-heading"><div><h3>新增错题 / 易错点</h3><p>可以保存题目摘要、正确思路和复习状态</p></div></div>
+          <form id="mistake-form" class="form-grid">
+            <div class="form-row"><label>所属专项<select name="skill"><option>词汇</option><option>听力</option><option>阅读</option><option>写作</option><option>翻译</option><option>真题模拟</option></select></label><label>来源<input name="source" placeholder="例如：2024 年 6 月真题" maxlength="80" /></label></div>
+            <label>题目 / 易错点<input name="question" required maxlength="300" placeholder="简要记录题目或容易弄错的知识点" /></label>
+            <label>正确思路 / 解析<textarea name="explanation" rows="3" placeholder="为什么错？正确思路是什么？"></textarea></label>
+            <button class="button button-primary" type="submit">加入错题本</button>
+          </form>
+        </article>
+        <div class="section-heading list-heading"><div><h2>需要复习</h2><p>完成复习后可标记为已掌握</p></div><div class="filter-pills"><button class="filter active" data-mistake-filter="open">待复习</button><button class="filter" data-mistake-filter="done">已掌握</button><button class="filter" data-mistake-filter="all">全部</button></div></div>
+        <div id="mistake-list" class="mistake-list empty-state">暂时没有错题。做完练习后，把值得复盘的内容记在这里。</div>
+      </section>
+      <section class="page" id="page-progress">
+        <div class="section-heading"><div><h2>进步档案</h2><p>用记录观察变化，不用一天的结果定义自己。</p></div><button class="button button-light" id="progress-export">导出 JSON</button></div>
+        <div class="content-grid">
+          <article class="panel"><div class="panel-heading"><div><h3>专项练习表现</h3><p>各专项的练习平均正确率</p></div></div><div id="skill-stats" class="skill-stats"></div></article>
+          <article class="panel"><div class="panel-heading"><div><h3>近 7 天学习时长</h3><p>单位：分钟</p></div></div><div id="weekly-chart" class="weekly-chart"></div></article>
+        </div>
+        <article class="panel table-panel"><div class="panel-heading"><div><h3>完整学习历史</h3><p>你的学习记录会持续累积</p></div></div><div id="all-sessions" class="record-list empty-state">还没有学习记录。</div></article>
+        <article class="panel table-panel"><div class="panel-heading"><div><h3>练习历史</h3><p>包含每次题量、正确题数和正确率</p></div></div><div id="all-practices" class="record-list empty-state">还没有练习记录。</div></article>
+      </section>
+      <section class="page" id="page-settings">
+        <div class="section-heading"><div><h2>数据管理</h2><p>你可以随时备份或恢复自己的学习进度。</p></div></div>
+        <div class="settings-grid">
+          <article class="panel"><div class="settings-icon blue">↓</div><h3>导出学习进度</h3><p>将学习记录、练习成绩和错题本打包为 JSON 文件，适合备份或迁移到其他设备。</p><button class="button button-primary" id="export-data">导出 JSON 备份</button></article>
+          <article class="panel"><div class="settings-icon green">↑</div><h3>导入学习进度</h3><p>选择此前导出的 JSON 文件。导入前会进行格式校验；导入将合并记录并避免相同 ID 重复。</p><label class="button button-light file-button">选择 JSON 文件<input type="file" id="import-file" accept=".json,application/json" /></label><p id="import-status" class="import-status" aria-live="polite"></p></article>
+          <article class="panel danger-panel"><div class="settings-icon orange">!</div><h3>清空本地数据</h3><p>只会清除当前浏览器中本工作台保存的学习记录。操作前建议先导出备份。</p><button class="button button-danger" id="clear-data">清空所有数据</button></article>
+        </div>
+        <div class="privacy-note"><b>关于数据存储</b><p>当前版本使用浏览器 localStorage 保存数据，不会主动上传到服务器。清除浏览器站点数据、换浏览器或换设备后，数据可能无法自动恢复，请定期导出 JSON 备份。</p></div>
+      </section>
+      <footer>StudyDesk · CET-4 Learning Workspace <span id="save-status">本地保存已启用</span></footer>
+    </main>
+  </div>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  <script>
+(() => {
+  "use strict";
+  const KEY = "studydesk-cet4-v1";
+  const emptyData = () => ({ schemaVersion: 1, sessions: [], practices: [], mistakes: [] });
+  let data = loadData();
+  let mistakeFilter = "open";
+  let toastTimer;
+
+  function loadData() {
+    try {
+      const parsed = JSON.parse(localStorage.getItem(KEY) || "null");
+      if (parsed && parsed.schemaVersion === 1 && Array.isArray(parsed.sessions) && Array.isArray(parsed.practices) && Array.isArray(parsed.mistakes)) return parsed;
+    } catch (e) { console.warn("Unable to read saved progress", e); }
+    return emptyData();
+  }
+  function saveData() {
+    try {
+      localStorage.setItem(KEY, JSON.stringify(data));
+      document.getElementById("save-status").textContent = "已自动保存 · " + new Date().toLocaleTimeString("zh-CN", {hour:"2-digit",minute:"2-digit"});
+    } catch (e) {
+      document.getElementById("save-status").textContent = "保存失败，请导出备份";
+      showToast("浏览器存储空间不足，请导出 JSON 备份");
+    }
+    renderAll();
+  }
+  function id() { return (crypto.randomUUID ? crypto.randomUUID() : Date.now().toString(36) + Math.random().toString(36).slice(2)); }
+  function dateKey(date = new Date()) { return date.getFullYear()+"-"+String(date.getMonth()+1).padStart(2,"0")+"-"+String(date.getDate()).padStart(2,"0"); }
+  function fmtDate(value) { const d = new Date(value); return Number.isNaN(d.getTime()) ? "日期未知" : d.toLocaleDateString("zh-CN",{month:"short",day:"numeric"}); }
+  function esc(s) { return String(s ?? "").replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c])); }
+  function showToast(msg) {
+    const el = document.getElementById("toast"); el.textContent = msg; el.classList.add("show");
+    clearTimeout(toastTimer); toastTimer = setTimeout(() => el.classList.remove("show"), 2600);
+  }
+  function go(page) {
+    document.querySelectorAll(".page").forEach(p => p.classList.toggle("active", p.id === "page-"+page));
+    document.querySelectorAll(".nav-item[data-page]").forEach(b => b.classList.toggle("active", b.dataset.page === page));
+    const titles = {overview:"学习总览",practice:"专项训练",mistakes:"错题本",progress:"进步档案",settings:"数据管理"};
+    document.getElementById("page-title").textContent = titles[page] || "学习总览";
+    if (page === "progress") renderProgress();
+    window.scrollTo({top:0,behavior:"smooth"});
+  }
+  function renderAll() { renderOverview(); renderMistakes(); renderProgress(); }
+  function renderOverview() {
+    document.getElementById("total-minutes").textContent = data.sessions.reduce((s,x)=>s+(Number(x.minutes)||0),0);
+    document.getElementById("total-sessions").textContent = data.sessions.length;
+    const valid = data.practices.filter(x => Number(x.total)>0);
+    document.getElementById("avg-accuracy").textContent = valid.length ? Math.round(valid.reduce((s,x)=>s+x.correct/x.total*100,0)/valid.length) : "—";
+    document.getElementById("accuracy-unit").textContent = valid.length ? "%" : "";
+    document.getElementById("open-mistakes").textContent = data.mistakes.filter(x=>!x.done).length;
+    const list = document.getElementById("recent-sessions"), recent = [...data.sessions].sort((a,b)=>b.createdAt-a.createdAt).slice(0,5);
+    list.classList.toggle("empty-state", !recent.length);
+    list.innerHTML = recent.length ? recent.map(x=>`<div class="record-item"><div class="record-bullet">${skillIcon(x.skill)}</div><div class="record-main"><b>${esc(x.topic)}</b><p>${esc(x.skill)} · ${Number(x.minutes)} 分钟${x.notes ? " · "+esc(x.notes) : ""}</p></div><span class="record-meta">${fmtDate(x.createdAt)}</span></div>`).join("") : "还没有记录。完成第一次学习后，这里就会出现你的足迹。";
+  }
+  function skillIcon(skill) { return ({词汇:"Aa",听力:"♫",阅读:"▤",写作:"✎",翻译:"译","真题模拟":"◫"})[skill] || "✦"; }
+  function renderProgress() {
+    const stats = document.getElementById("skill-stats");
+    if (!stats) return;
+    const skills = ["词汇","听力","阅读","写作","翻译","真题模拟"];
+    stats.innerHTML = skills.map(skill => {
+      const rows = data.practices.filter(x=>x.skill===skill && Number(x.total)>0);
+      const avg = rows.length ? Math.round(rows.reduce((s,x)=>s+x.correct/x.total*100,0)/rows.length) : 0;
+      return `<div><div class="skill-stat-head"><span>${skill} <small style="color:#9aa4b4">(${rows.length} 次)</small></span><span>${rows.length ? avg+"%" : "暂无数据"}</span></div><div class="progress-track"><div class="progress-fill" style="width:${avg}%"></div></div></div>`;
+    }).join("");
+    const chart = document.getElementById("weekly-chart"), today = new Date(), days = [];
+    for(let i=6;i>=0;i--){const d=new Date(today);d.setDate(today.getDate()-i);const key=dateKey(d);const mins=data.sessions.filter(s=>dateKey(new Date(s.createdAt))===key).reduce((a,s)=>a+Number(s.minutes||0),0);days.push({label:["日","一","二","三","四","五","六"][d.getDay()],mins,today:i===0});}
+    const max=Math.max(30,...days.map(d=>d.mins));
+    chart.innerHTML=days.map(d=>`<div class="day-col"><div class="day-bar-wrap"><div class="day-bar ${d.today?"today":""}" style="height:${Math.max(d.mins?4:2,d.mins/max*100)}%"><span>${d.mins||""}</span></div></div><small>${d.today?"今天":d.label}</small></div>`).join("");
+    const sessions=[...data.sessions].sort((a,b)=>b.createdAt-a.createdAt);
+    const all=document.getElementById("all-sessions"); all.classList.toggle("empty-state",!sessions.length);
+    all.innerHTML=sessions.length?sessions.map(x=>`<div class="record-item"><div class="record-bullet">${skillIcon(x.skill)}</div><div class="record-main"><b>${esc(x.topic)}</b><p>${esc(x.skill)} · ${Number(x.minutes)} 分钟${x.notes?" · "+esc(x.notes):""}</p></div><span class="record-meta">${fmtDate(x.createdAt)}</span></div>`).join(""):"还没有学习记录。";
+    const practices=[...data.practices].sort((a,b)=>b.createdAt-a.createdAt), pEl=document.getElementById("all-practices");pEl.classList.toggle("empty-state",!practices.length);
+    pEl.innerHTML=practices.length?practices.map(x=>`<div class="record-item"><div class="record-bullet">${skillIcon(x.skill)}</div><div class="record-main"><b>${esc(x.title)}</b><p>${esc(x.skill)} · ${x.correct}/${x.total} 题正确 · ${x.total?Math.round(x.correct/x.total*100):0}%${x.notes?" · "+esc(x.notes):""}</p></div><span class="record-meta">${fmtDate(x.createdAt)}</span></div>`).join(""):"还没有练习记录。";
+  }
+  function renderMistakes() {
+    const list=document.getElementById("mistake-list"); if(!list)return;
+    const rows=[...data.mistakes].sort((a,b)=>b.createdAt-a.createdAt).filter(x=>mistakeFilter==="all"||(mistakeFilter==="done"?x.done:!x.done));
+    list.classList.toggle("empty-state",!rows.length);
+    list.innerHTML=rows.length?rows.map(x=>`<article class="mistake-card"><div class="mistake-top"><span class="tag">${esc(x.skill)}</span><span class="tag ${x.done?"done":""}">${x.done?"已掌握":"待复习"}</span><span class="record-meta">${fmtDate(x.createdAt)}${x.source?" · "+esc(x.source):""}</span></div><h3>${esc(x.question)}</h3>${x.explanation?`<p><b>复盘：</b>${esc(x.explanation)}</p>`:""}<div class="mistake-actions">${x.done?`<button class="small-button" data-mistake-action="reopen" data-id="${x.id}">重新加入复习</button>`:`<button class="small-button primary" data-mistake-action="done" data-id="${x.id}">标记为已掌握 ✓</button>`}<button class="small-button" data-mistake-action="delete" data-id="${x.id}">删除</button></div></article>`).join(""):"没有符合条件的错题记录。";
+  }
+  function exportData() {
+    const payload={app:"StudyDesk CET-4 Learning Workspace",schemaVersion:1,exportedAt:new Date().toISOString(),data};
+    const blob=new Blob([JSON.stringify(payload,null,2)],{type:"application/json"});
+    const url=URL.createObjectURL(blob),a=document.createElement("a");a.href=url;a.download=`studydesk-cet4-${dateKey()}.json`;document.body.appendChild(a);a.click();a.remove();URL.revokeObjectURL(url);showToast("JSON 备份已生成");
+  }
+  function normalizeImport(obj) {
+    const source=obj && obj.data ? obj.data : obj;
+    if(!source || source.schemaVersion!==1 || !Array.isArray(source.sessions)||!Array.isArray(source.practices)||!Array.isArray(source.mistakes)) throw new Error("文件格式不正确或版本不受支持");
+    for(const [key,fields] of Object.entries({sessions:["id","topic","skill","minutes","createdAt"],practices:["id","title","skill","total","correct","createdAt"],mistakes:["id","skill","question","createdAt"]})) {
+      for(const row of source[key]) if(!row||fields.some(f=>row[f]===undefined)) throw new Error(`“${key}”中有记录缺少必要字段`);
+    }
+    return {sessions:source.sessions,practices:source.practices,mistakes:source.mistakes};
+  }
+  function mergeById(current,incoming) {
+    const map=new Map(current.map(x=>[x.id,x]));
+    incoming.forEach(x=>{if(!map.has(x.id))map.set(x.id,x);});
+    return [...map.values()];
+  }
+  document.getElementById("today-label").textContent=new Date().toLocaleDateString("zh-CN",{year:"numeric",month:"long",day:"numeric",weekday:"short"});
+  document.querySelectorAll("[data-page]").forEach(b=>b.addEventListener("click",()=>go(b.dataset.page)));
+  document.querySelectorAll("[data-goto]").forEach(b=>b.addEventListener("click",()=>go(b.dataset.goto)));
+  document.getElementById("session-form").addEventListener("submit",e=>{
+    e.preventDefault();const f=new FormData(e.currentTarget);
+    data.sessions.push({id:id(),topic:String(f.get("topic")).trim(),skill:f.get("skill"),minutes:Number(f.get("minutes")),notes:String(f.get("notes")||"").trim(),createdAt:Date.now()});
+    e.currentTarget.reset();e.currentTarget.elements.minutes.value=25;saveData();showToast("学习记录已保存");
+  });
+  document.querySelectorAll("[data-skill]").forEach(b=>b.addEventListener("click",()=>{document.getElementById("practice-skill").value=b.dataset.skill;document.querySelector(".practice-entry").scrollIntoView({behavior:"smooth",block:"start"});document.querySelector('#practice-form input[name="title"]').focus();}));
+  document.getElementById("practice-form").addEventListener("submit",e=>{
+    e.preventDefault();const f=new FormData(e.currentTarget),total=Number(f.get("total")),correct=Number(f.get("correct"));
+    if(correct>total){showToast("正确题数不能大于题目总数");return;}
+    data.practices.push({id:id(),skill:f.get("skill"),title:String(f.get("title")).trim(),total,correct,notes:String(f.get("notes")||"").trim(),createdAt:Date.now()});
+    e.currentTarget.reset();e.currentTarget.elements.total.value=10;e.currentTarget.elements.correct.value=7;saveData();showToast("练习结果已保存");
+  });
+  document.getElementById("mistake-form").addEventListener("submit",e=>{
+    e.preventDefault();const f=new FormData(e.currentTarget);
+    data.mistakes.push({id:id(),skill:f.get("skill"),source:String(f.get("source")||"").trim(),question:String(f.get("question")).trim(),explanation:String(f.get("explanation")||"").trim(),done:false,createdAt:Date.now()});
+    e.currentTarget.reset();saveData();showToast("已加入错题本");
+  });
+  document.querySelectorAll("[data-mistake-filter]").forEach(b=>b.addEventListener("click",()=>{mistakeFilter=b.dataset.mistakeFilter;document.querySelectorAll("[data-mistake-filter]").forEach(x=>x.classList.toggle("active",x===b));renderMistakes();}));
+  document.getElementById("mistake-list").addEventListener("click",e=>{
+    const b=e.target.closest("[data-mistake-action]");if(!b)return;const row=data.mistakes.find(x=>x.id===b.dataset.id);if(!row)return;
+    if(b.dataset.mistakeAction==="delete"){if(!confirm("确定删除这条错题吗？"))return;data.mistakes=data.mistakes.filter(x=>x.id!==row.id);}
+    else row.done=b.dataset.mistakeAction==="done";
+    saveData();showToast("错题本已更新");
+  });
+  ["quick-export","progress-export","export-data"].forEach(id=>document.getElementById(id).addEventListener("click",exportData));
+  document.getElementById("import-file").addEventListener("change",async e=>{
+    const file=e.target.files[0];if(!file)return;const status=document.getElementById("import-status");
+    try{
+      const parsed=JSON.parse(await file.text()), incoming=normalizeImport(parsed);
+      const counts={sessions:incoming.sessions.length,practices:incoming.practices.length,mistakes:incoming.mistakes.length};
+      if(!confirm(`文件校验通过。\n学习记录：${counts.sessions} 条\n练习记录：${counts.practices} 条\n错题：${counts.mistakes} 条\n\n将与当前记录合并，不覆盖相同 ID 的现有记录。继续吗？`)){status.textContent="已取消导入";return;}
+      data.sessions=mergeById(data.sessions,incoming.sessions);data.practices=mergeById(data.practices,incoming.practices);data.mistakes=mergeById(data.mistakes,incoming.mistakes);
+      saveData();status.textContent=`导入完成：学习 ${counts.sessions} 条、练习 ${counts.practices} 条、错题 ${counts.mistakes} 条`;showToast("学习进度导入完成");
+    }catch(err){status.textContent="导入失败："+err.message;showToast("导入失败，请检查 JSON 文件");}
+    e.target.value="";
+  });
+  document.getElementById("clear-data").addEventListener("click",()=>{
+    if(!confirm("确定清空当前浏览器保存的全部学习记录、练习成绩和错题吗？建议先导出备份。"))return;
+    data=emptyData();saveData();showToast("本地学习数据已清空");
+  });
+  renderAll();
+})();
+  </script>
+</body>
+</html>
